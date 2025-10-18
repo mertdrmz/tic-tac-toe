@@ -87,10 +87,32 @@ function Game() {
   });
   return (
     <div className="game">
+      <h1 style={{ 
+        fontSize: '2.5rem', 
+        fontWeight: 'bold', 
+        color: '#2d3748', 
+        marginBottom: '1rem',
+        textAlign: 'center',
+        background: 'linear-gradient(135deg, #667eea, #764ba2)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text'
+      }}>
+        Tic Tac Toe
+      </h1>
       <div className="game-board">
         <Board isNext={xisNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
+        <h3 style={{ 
+          fontSize: '1.2rem', 
+          fontWeight: '600', 
+          color: '#4a5568', 
+          marginBottom: '1rem',
+          textAlign: 'center'
+        }}>
+          Game History
+        </h3>
         <ol>{moves}</ol>
       </div>
     </div>
