@@ -6,6 +6,7 @@ interface SquareProps {
   value: string;
   onSquareClick: () => void;
   isHighlighted?: boolean;
+  isLosing: boolean;
 }
 
 interface BoardProps {
@@ -14,11 +15,11 @@ interface BoardProps {
   onPlay: (squares: (string | null)[]) => void;
 }
 
-function Square({ value, onSquareClick, isHighlighted = false }: SquareProps) {
+function Square({ value, onSquareClick, isHighlighted = false, isLosing = false }: SquareProps) {
   return (
     <button
       className={`square ${
-        isHighlighted ? "bg-yellow-400 border-red-500" : ""
+        isHighlighted ? "bg-green-400 border-green-600": isLosing ? "bg-red-400 border-red-600" : ""
       }`}
       onClick={onSquareClick}
     >
@@ -57,12 +58,16 @@ function Board({ isNext, squares, onPlay }: BoardProps) {
         <div key={row} className="board-row">
           {Array.from({ length: 3 }, (_, col) => {
             const index = row * 3 + col;
+            const isHighlighted = winningSquares?.includes(index) || false;
+            const isLosing =
+              winner && squares[index] && !winningSquares?.includes(index);
             return (
               <Square
                 key={index}
                 value={squares[index] ?? ""}
                 onSquareClick={() => handleClick(index)}
-                isHighlighted={winningSquares?.includes(index) || false}
+                isHighlighted={isHighlighted}
+                isLosing={isLosing}
               />
             );
           })}
