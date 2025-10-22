@@ -110,7 +110,7 @@ function Game() {
             style={{
               fontWeight: "bold",
               color: "#667eea",
-              padding: "0.75rem 1rem",
+              padding: "0.75rem 2rem",
               display: "block",
               textAlign: "center",
             }}
