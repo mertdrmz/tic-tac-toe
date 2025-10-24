@@ -149,7 +149,7 @@ function Game() {
             fontSize: "1.2rem",
             fontWeight: "600",
             color: "#4a5568",
-            marginBottom: "1rem",
+            marginBottom: "2rem",
             textAlign: "center",
           }}
         >
