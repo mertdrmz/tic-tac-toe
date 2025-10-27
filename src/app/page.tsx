@@ -37,7 +37,7 @@ function Board({ isNext, squares, onPlay }: BoardProps) {
 
     const result = calculateWinner(nextSquares);
     if (result.winner) {
-      alert(`🎉 ${result.winner} wins!`);
+      alert(`🎉 ${result.winner} wins!!!`);
     } else if (nextSquares.every((square) => square !== null)) {
       alert("🤝 It's a draw!");
     }
